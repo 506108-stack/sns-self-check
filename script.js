@@ -1,24 +1,35 @@
-function diagnosis(){
+function diagnosis() {
 
-let score = 0;
+    let score = 0;
 
-if(document.getElementById("angry").checked) score++;
-if(document.getElementById("sad").checked) score++;
-if(document.getElementById("tired").checked) score++;
-if(document.getElementById("compare").checked) score++;
+    if(document.getElementById("angry").checked){
+        score++;
+    }
 
-let message="";
+    if(document.getElementById("sad").checked){
+        score++;
+    }
 
-if(score==0){
-    message="😊 良い状態です！SNSを楽しみましょう！";
-}
-else if(score<=2){
-    message="🙂 少し疲れているかも。深呼吸してからSNSを開いてみよう。";
-}
-else{
-    message="🌿 今日は少し休憩してからSNSを見ることをおすすめします。";
-}
+    if(document.getElementById("tired").checked){
+        score++;
+    }
 
-document.getElementById("result").innerHTML=message;
+    if(document.getElementById("compare").checked){
+        score++;
+    }
+
+    let message = "";
+
+    if(score == 0){
+        message = "🌸 今は落ち着いてSNSを楽しめそうです！";
+    }
+    else if(score <= 2){
+        message = "💛 少し疲れているかもしれません。深呼吸してからSNSを見てみましょう。";
+    }
+    else{
+        message = "💙 今はSNSを開く前に少し休憩するのがおすすめです☕";
+    }
+
+    document.getElementById("result").innerHTML = message;
 
 }
