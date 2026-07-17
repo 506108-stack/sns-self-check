@@ -1,16 +1,13 @@
+console.log("face.jsが読み込まれました！");
+
 const video = document.getElementById("webcam");
 
-async function startCamera(){
+async function startCamera() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: true
+  });
 
-const stream =
-await navigator.mediaDevices.getUserMedia({
-
-video:true
-
-});
-
-video.srcObject = stream;
-
+  video.srcObject = stream;
 }
 
 startCamera();
