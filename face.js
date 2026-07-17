@@ -1,13 +1,4 @@
-console.log("face.jsが読み込まれました！");
-
-const video = document.getElementById("webcam");
-
-async function startCamera() {
-  const stream = await navigator.mediaDevices.getUserMedia({
-    video: true
-  });
-
-  video.srcObject = stream;
-}
-
-startCamera();
+import {
+  FaceLandmarker,
+  FilesetResolver
+} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22";
