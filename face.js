@@ -10,6 +10,7 @@ const vision = await FilesetResolver.forVisionTasks(
 );
 
 console.log("✅ Vision準備完了");
+console.log("FaceLandmarker:", FaceLandmarker);
 let faceLandmarker;
 
 try {
