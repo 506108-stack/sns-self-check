@@ -43,4 +43,4 @@ startCamera().then(() => {
   console.log("readyState:", video.readyState);
   console.log("videoWidth:", video.videoWidth);
 });
-startCamera();
+
