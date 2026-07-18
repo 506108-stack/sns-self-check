@@ -68,6 +68,3 @@ function detectFace() {
   requestAnimationFrame(detectFace);
 }
 
-video.addEventListener("loadeddata", () => {
-  detectFace();
-});
