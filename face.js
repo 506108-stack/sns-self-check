@@ -58,12 +58,18 @@ startCamera().then(() => {
 });
 function detectFace() {
 
+  console.log("detectFace開始");
+
   const result = faceLandmarker.detectForVideo(
     video,
     performance.now()
   );
 
   console.log(result);
+
+  requestAnimationFrame(detectFace);
+
+}
 
   requestAnimationFrame(detectFace);
 }
