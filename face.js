@@ -25,6 +25,7 @@ faceLandmarker = await FaceLandmarker.createFromOptions(
       },
       runningMode: "VIDEO",
       numFaces: 1
+       outputFaceBlendshapes: true
     }
   );
 
