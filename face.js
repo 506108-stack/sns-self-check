@@ -22,3 +22,5 @@ async function startCamera() {
 }
 
 startCamera();
+console.log(video);
+console.log(video.srcObject);
