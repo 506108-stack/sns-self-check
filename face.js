@@ -46,6 +46,7 @@ async function startCamera() {
 
   // ★追加
   await video.play();
+console.log("ここまで来た");
 
   console.log("動画サイズ", video.videoWidth, video.videoHeight);
 }
