@@ -10,19 +10,27 @@ const vision = await FilesetResolver.forVisionTasks(
 );
 
 console.log("✅ Vision準備完了");
-const faceLandmarker = await FaceLandmarker.createFromOptions(
-  vision,
-  {
-    baseOptions: {
-      modelAssetPath:
-        "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task"
-    },
-    runningMode: "VIDEO",
-    numFaces: 1
-  }
-);
+let faceLandmarker;
 
-console.log("✅ FaceLandmarker作成成功");
+try {
+  faceLandmarker = await FaceLandmarker.createFromOptions(
+    vision,
+    {
+      baseOptions: {
+        modelAssetPath:
+          "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task"
+      },
+      runningMode: "VIDEO",
+      numFaces: 1
+    }
+  );
+
+  console.log("✅ FaceLandmarker作成成功");
+
+} catch (error) {
+  console.error("❌ FaceLandmarkerエラー");
+  console.error(error);
+}
 const video = document.getElementById("webcam");
 
 async function startCamera() {
