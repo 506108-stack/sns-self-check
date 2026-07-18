@@ -54,7 +54,7 @@ startCamera().then(() => {
   console.log("video:", video);
   console.log("readyState:", video.readyState);
   console.log("videoWidth:", video.videoWidth);
-
+console.log("detectFaceを呼びます");
   detectFace();   // ←この1行を追加！
 });
 function detectFace() {
