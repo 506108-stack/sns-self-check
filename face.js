@@ -54,4 +54,18 @@ startCamera().then(() => {
   console.log("readyState:", video.readyState);
   console.log("videoWidth:", video.videoWidth);
 });
+function detectFace() {
 
+  const result = faceLandmarker.detectForVideo(
+    video,
+    performance.now()
+  );
+
+  console.log(result);
+
+  requestAnimationFrame(detectFace);
+}
+
+video.addEventListener("loadeddata", () => {
+  detectFace();
+});
