@@ -70,7 +70,3 @@ function detectFace() {
   requestAnimationFrame(detectFace);
 
 }
-
-  requestAnimationFrame(detectFace);
-}
-
