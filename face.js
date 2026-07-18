@@ -14,7 +14,9 @@ console.log("FaceLandmarker:", FaceLandmarker);
 let faceLandmarker;
 
 try {
-  faceLandmarker = await FaceLandmarker.createFromOptions(
+  console.log("FaceLandmarker作成開始");
+
+faceLandmarker = await FaceLandmarker.createFromOptions(
     vision,
     {
       baseOptions: {
