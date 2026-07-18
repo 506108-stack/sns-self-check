@@ -39,26 +39,23 @@ button{
     cursor:pointer;
     font-size:18px;
 }
-
 #result{
-    .camera-area{
-
-margin:20px auto;
-
-text-align:center;
-
-}
-
-#webcam{
-
-width:320px;
-
-border-radius:20px;
-
-box-shadow:0 0 10px rgba(0,0,0,.2);
-
-}
     margin-top:20px;
     font-weight:bold;
     text-align:center;
+}
+
+.camera-area{
+    margin:20px auto;
+    text-align:center;
+}
+
+#webcam{
+    width:320px;
+    border-radius:20px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+#output_canvas{
+    display:none;
 }
