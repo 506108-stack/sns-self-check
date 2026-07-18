@@ -26,5 +26,9 @@ async function startCamera() {
 
   console.log("動画サイズ", video.videoWidth, video.videoHeight);
 }
-
+startCamera().then(() => {
+  console.log("video:", video);
+  console.log("readyState:", video.readyState);
+  console.log("videoWidth:", video.videoWidth);
+});
 startCamera();
