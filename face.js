@@ -67,7 +67,7 @@ function detectFace() {
     performance.now()
   );
 
-  console.log(result);
+console.log(result.faceBlendshapes);
 
   requestAnimationFrame(detectFace);
 
