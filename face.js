@@ -74,8 +74,11 @@ function detectFace() {
     return;
   }
 
-  const blendshapes = result.faceBlendshapes[0].categories;
+const blendshapes = result.faceBlendshapes[0].categories;
 
+blendshapes.forEach(x => {
+  console.log(x.categoryName, x.score);
+});
   const smile =
     blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score || 0;
 console.log("smile =", smile);
