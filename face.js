@@ -78,7 +78,7 @@ function detectFace() {
 
   const smile =
     blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score || 0;
-
+console.log("smile =", smile);
   const frown =
     blendshapes.find(x => x.categoryName === "mouthFrownLeft")?.score || 0;
 
