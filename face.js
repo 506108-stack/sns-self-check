@@ -65,30 +65,27 @@ function detectFace() {
     performance.now()
   );
 
-  if (result.faceBlendshapes.length > 0) {
+  const blendshapes = result.faceBlendshapes[0].categories;
 
-    const blendshapes = result.faceBlendshapes[0].categories;
+  const smile = blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score || 0;
+  const frown = blendshapes.find(x => x.categoryName === "mouthFrownLeft")?.score || 0;
+  const brow = blendshapes.find(x => x.categoryName === "browDownLeft")?.score || 0;
 
-    const smile =
-      blendshapes.find(b => b.categoryName === "mouthSmileLeft")?.score ?? 0;
+  const emotion = document.getElementById("emotion");
 
-    const frown =
-      blendshapes.find(b => b.categoryName === "mouthFrownLeft")?.score ?? 0;
-
-    const brow =
-      blendshapes.find(b => b.categoryName === "browDownLeft")?.score ?? 0;
-
-    console.log("😊", smile);
-    console.log("😢", frown);
-    console.log("😠", brow);
-
+  if (smile > 0.5) {
+    emotion.textContent = "😊 笑顔ですね！";
+  }
+  else if (brow > 0.4) {
+    emotion.textContent = "😠 少しイライラしているかも";
+  }
+  else if (frown > 0.4) {
+    emotion.textContent = "😢 少し落ち込んでいるかも";
+  }
+  else {
+    emotion.textContent = "😐 普通の表情です";
   }
 
   requestAnimationFrame(detectFace);
 }
-
-console.log(result.faceBlendshapes);
-
-  requestAnimationFrame(detectFace);
-
 }
