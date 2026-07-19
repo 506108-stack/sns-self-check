@@ -60,12 +60,32 @@ console.log("detectFaceを呼びます");
 });
 function detectFace() {
 
-  console.log("detectFace開始");
-
   const result = faceLandmarker.detectForVideo(
     video,
     performance.now()
   );
+
+  if (result.faceBlendshapes.length > 0) {
+
+    const blendshapes = result.faceBlendshapes[0].categories;
+
+    const smile =
+      blendshapes.find(b => b.categoryName === "mouthSmileLeft")?.score ?? 0;
+
+    const frown =
+      blendshapes.find(b => b.categoryName === "mouthFrownLeft")?.score ?? 0;
+
+    const brow =
+      blendshapes.find(b => b.categoryName === "browDownLeft")?.score ?? 0;
+
+    console.log("😊", smile);
+    console.log("😢", frown);
+    console.log("😠", brow);
+
+  }
+
+  requestAnimationFrame(detectFace);
+}
 
 console.log(result.faceBlendshapes);
 
