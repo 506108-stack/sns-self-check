@@ -88,4 +88,3 @@ console.log(blendshapes);
 
   requestAnimationFrame(detectFace);
 }
-}
