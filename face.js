@@ -164,19 +164,24 @@ const maxScore = Math.max(
 );
 
 if (maxScore < 0.35) {
-  emotion.textContent = "😐 普通の表情です";
+emotion.innerHTML =
+"😐 <b>普通の表情です</b><br><small>Your expression looks neutral.</small>";
 }
 else if (maxScore === smileScore) {
-  emotion.textContent = "😊 笑顔ですね！";
+emotion.innerHTML =
+"😊 <b>笑顔ですね！</b><br><small>You look happy!</small>";
 }
 else if (maxScore === sadScore) {
-  emotion.textContent = "😢 少し落ち込んでいるかも";
+emotion.innerHTML =
+"😢 <b>少し落ち込んでいるかも</b><br><small>You may be feeling a little down.</small>";
 }
 else if (maxScore === angryScore) {
-  emotion.textContent = "😠 少しイライラしているかも";
+ emotion.innerHTML =
+"😠 <b>少しイライラしているかも</b><br><small>You may be feeling irritated.</small>";
 }
 else {
-  emotion.textContent = "🥱 少し疲れているかも";
+ emotion.innerHTML =
+"🥱 <b>少し疲れているかも</b><br><small>You may be feeling tired.</small>";
 }
 requestAnimationFrame(detectFace);
 
