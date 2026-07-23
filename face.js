@@ -117,8 +117,8 @@ console.log({
 // 判定
 const emotion = document.getElementById("emotion");
 
-if (smile > 0.12) {
-  emotion.textContent = "😊 笑顔ですね！";
+if (smile > 0.5) {
+    emotion.textContent = "😊 笑顔ですね！";
 }
 else if (browDown > 0.8) {
   emotion.textContent = "😠 少しイライラしているかも";
