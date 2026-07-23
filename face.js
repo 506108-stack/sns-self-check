@@ -145,6 +145,13 @@ const tiredScore =
   eyeBlink * 0.6 +
   eyeSquint * 0.4;
 
+  // ---------- 表情リスクスコア（40点満点） ----------
+const faceScore = Math.round(
+  Math.min(Math.max(sadScore, angryScore, tiredScore), 1) * 40
+);
+
+window.faceScore = faceScore;
+
 // デバッグ
 console.log({
   smileScore,
