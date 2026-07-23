@@ -140,18 +140,23 @@ console.log({
 // 判定
 const emotion = document.getElementById("emotion");
 
-if (smile > 0.5) {
-    emotion.textContent = "😊 笑顔ですね！";
+  if (smile > 0.35 && smileR > 0.35) {
+
+  emotion.textContent = "😊 笑顔ですね！";
+
 }
-else if (browDown > 0.8) {
-  emotion.textContent = "😠 少しイライラしているかも";
-}
-else if (frown > 0.15) {
+else if (
+  browInner > 0.45 &&
+  eyeSquint > 0.25 &&
+  mouthShrug > 0.35
+) {
+
   emotion.textContent = "😢 少し落ち込んでいるかも";
-}
-else if (eyeClose > 1.2) {
-  emotion.textContent = "🥱 少し疲れているかも";
+
 }
 else {
+
   emotion.textContent = "😐 普通の表情です";
+
 }
+
