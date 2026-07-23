@@ -102,16 +102,6 @@ console.log(
   blendshapes.find(x => x.categoryName === "eyeBlinkLeft")?.score,
   blendshapes.find(x => x.categoryName === "eyeBlinkRight")?.score
 );
-  const smile =
-    blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score || 0;
-console.log("smile =", smile);
-  const frown =
-    blendshapes.find(x => x.categoryName === "mouthFrownLeft")?.score || 0;
-
-  const brow =
-    blendshapes.find(x => x.categoryName === "browDownLeft")?.score || 0;
-
-  const emotion = document.getElementById("emotion");
 
 const smile =
   (blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score || 0) +
