@@ -22,29 +22,127 @@ SNSを見る前に、今の気持ちをチェックしてみよう
 </p>
 
 <div class="question">
+<h2>📝 今の気分を教えてください</h2>
+<p class="small">
+Please answer the following questions.
+</p>
+<div class="question">
 
-<label>
-<input type="checkbox" id="angry">
-イライラしている
-</label>
+<p>
+① イライラしていますか？<br>
+<small>Are you feeling irritated?</small>
+</p>
 
-<label>
-<input type="checkbox" id="sad">
-落ち込んでいる
-</label>
+<label><input type="radio" name="angry" value="0"> 全くない / Not at all</label>
 
-<label>
-<input type="checkbox" id="tired">
-疲れている
-</label>
+<label><input type="radio" name="angry" value="1"> 少しある / A little</label>
 
-<label>
-<input type="checkbox" id="compare">
-他人と比べてしまいそう
-</label>
+<label><input type="radio" name="angry" value="2"> まあまあある / Quite a bit</label>
+
+<label><input type="radio" name="angry" value="3"> とてもある / Very much</label>
 
 </div>
+<div class="question">
 
+<p>
+② 落ち込んでいますか？<br>
+<small>Are you feeling down?</small>
+</p>
+
+<label><input type="radio" name="sad" value="0"> 全くない / Not at all</label>
+
+<label><input type="radio" name="sad" value="1"> 少しある / A little</label>
+
+<label><input type="radio" name="sad" value="2"> まあまあある / Quite a bit</label>
+
+<label><input type="radio" name="sad" value="3"> とてもある / Very much</label>
+
+</div>
+<div class="question">
+
+<p>
+③ 疲れていますか？<br>
+<small>Are you feeling tired?</small>
+</p>
+
+<label><input type="radio" name="tired" value="0"> 全くない / Not at all</label>
+
+<label><input type="radio" name="tired" value="1"> 少しある / A little</label>
+
+<label><input type="radio" name="tired" value="2"> まあまあある / Quite a bit</label>
+
+<label><input type="radio" name="tired" value="3"> とてもある / Very much</label>
+
+</div>
+  <div class="question">
+
+<p>
+④ 他人と比べてしまいそうですか？<br>
+<small>Do you think you may compare yourself to others?</small>
+</p>
+
+<label><input type="radio" name="compare" value="0"> 全く思わない / Not at all</label>
+
+<label><input type="radio" name="compare" value="1"> 少し思う / A little</label>
+
+<label><input type="radio" name="compare" value="2"> やや思う / Quite a bit</label>
+
+<label><input type="radio" name="compare" value="3"> とても思う / Very much</label>
+
+</div>
+  <div class="question">
+
+<p>
+⑤ 集中できますか？<br>
+<small>Can you concentrate now?</small>
+</p>
+
+<label><input type="radio" name="focus" value="3"> とてもできる / Very well</label>
+<label><input type="radio" name="focus" value="2"> まあまあできる / Fairly well</label>
+<label><input type="radio" name="focus" value="1"> あまりできない / Not very well</label>
+<label><input type="radio" name="focus" value="0"> 全くできない / Not at all</label>
+
+</div>
+  <div class="question">
+
+<p>
+⑥ SNSを見ると気分が悪くなることがありますか？<br>
+<small>Do you sometimes feel worse after using SNS?</small>
+</p>
+
+<label><input type="radio" name="past" value="0"> 全くない / Never</label>
+<label><input type="radio" name="past" value="1"> あまりない / Rarely</label>
+<label><input type="radio" name="past" value="2"> ときどきある / Sometimes</label>
+<label><input type="radio" name="past" value="3"> よくある / Often</label>
+
+</div>
+  <div class="question">
+
+<p>
+⑦ 寂しいと感じていますか？<br>
+<small>Are you feeling lonely?</small>
+</p>
+
+<label><input type="radio" name="lonely" value="0"> 全くない / Not at all</label>
+<label><input type="radio" name="lonely" value="1"> 少しある / A little</label>
+<label><input type="radio" name="lonely" value="2"> まあまあある / Quite a bit</label>
+<label><input type="radio" name="lonely" value="3"> とてもある / Very much</label>
+
+</div>
+  <div class="question">
+
+<p>
+⑧ 誰かに認められたいと思っていますか？<br>
+<small>Do you want others to recognize or approve of you?</small>
+</p>
+
+<label><input type="radio" name="approval" value="0"> 全く思わない / Not at all</label>
+<label><input type="radio" name="approval" value="1"> 少し思う / A little</label>
+<label><input type="radio" name="approval" value="2"> まあまあ思う / Quite a bit</label>
+<label><input type="radio" name="approval" value="3"> とても思う / Very much</label>
+
+</div>
+  
 <button onclick="diagnosis()">
 診断する
 </button>
