@@ -79,6 +79,29 @@ const blendshapes = result.faceBlendshapes[0].categories;
 blendshapes.forEach(x => {
   console.log(x.categoryName, x.score);
 });
+  console.log(
+  "smile",
+  blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score,
+  blendshapes.find(x => x.categoryName === "mouthSmileRight")?.score
+);
+
+console.log(
+  "frown",
+  blendshapes.find(x => x.categoryName === "mouthFrownLeft")?.score,
+  blendshapes.find(x => x.categoryName === "mouthFrownRight")?.score
+);
+
+console.log(
+  "browDown",
+  blendshapes.find(x => x.categoryName === "browDownLeft")?.score,
+  blendshapes.find(x => x.categoryName === "browDownRight")?.score
+);
+
+console.log(
+  "eyeBlink",
+  blendshapes.find(x => x.categoryName === "eyeBlinkLeft")?.score,
+  blendshapes.find(x => x.categoryName === "eyeBlinkRight")?.score
+);
   const smile =
     blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score || 0;
 console.log("smile =", smile);
