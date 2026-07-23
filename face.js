@@ -90,15 +90,45 @@ console.log("smile =", smile);
 
   const emotion = document.getElementById("emotion");
 
-  if (smile > 0.5) {
-    emotion.textContent = "😊 笑顔ですね！";
-  } else if (brow > 0.4) {
-    emotion.textContent = "😠 少しイライラしているかも";
-  } else if (frown > 0.4) {
-    emotion.textContent = "😢 少し落ち込んでいるかも";
-  } else {
-    emotion.textContent = "😐 普通の表情です";
-  }
+const smile =
+  (blendshapes.find(x => x.categoryName === "mouthSmileLeft")?.score || 0) +
+  (blendshapes.find(x => x.categoryName === "mouthSmileRight")?.score || 0);
 
-  requestAnimationFrame(detectFace);
+const frown =
+  (blendshapes.find(x => x.categoryName === "mouthFrownLeft")?.score || 0) +
+  (blendshapes.find(x => x.categoryName === "mouthFrownRight")?.score || 0);
+
+const browDown =
+  (blendshapes.find(x => x.categoryName === "browDownLeft")?.score || 0) +
+  (blendshapes.find(x => x.categoryName === "browDownRight")?.score || 0);
+
+const eyeClose =
+  (blendshapes.find(x => x.categoryName === "eyeBlinkLeft")?.score || 0) +
+  (blendshapes.find(x => x.categoryName === "eyeBlinkRight")?.score || 0);
+
+// デバッグ用
+console.log({
+  smile,
+  frown,
+  browDown,
+  eyeClose
+});
+
+// 判定
+const emotion = document.getElementById("emotion");
+
+if (smile > 0.12) {
+  emotion.textContent = "😊 笑顔ですね！";
+}
+else if (browDown > 0.8) {
+  emotion.textContent = "😠 少しイライラしているかも";
+}
+else if (frown > 0.15) {
+  emotion.textContent = "😢 少し落ち込んでいるかも";
+}
+else if (eyeClose > 1.2) {
+  emotion.textContent = "🥱 少し疲れているかも";
+}
+else {
+  emotion.textContent = "😐 普通の表情です";
 }
