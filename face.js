@@ -118,6 +118,13 @@ const browDown =
 const eyeClose =
   (blendshapes.find(x => x.categoryName === "eyeBlinkLeft")?.score || 0) +
   (blendshapes.find(x => x.categoryName === "eyeBlinkRight")?.score || 0);
+ 
+  const mouthPucker =
+  blendshapes.find(x => x.categoryName === "mouthPucker")?.score || 0;
+
+const eyeSquint =
+  (blendshapes.find(x => x.categoryName === "eyeSquintLeft")?.score || 0) +
+  (blendshapes.find(x => x.categoryName === "eyeSquintRight")?.score || 0);
 
 // デバッグ用
 console.log({
@@ -149,4 +156,15 @@ else {
   emotion.textContent = "😐 普通の表情です";
 
 }
+
+// イライラ
+else if (
+  eyeSquint > 0.45 &&
+  mouthPucker > 0.30
+) {
+
+  emotion.textContent = "😠 少しイライラしているかも";
+
+}
+
 
