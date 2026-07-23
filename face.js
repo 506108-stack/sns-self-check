@@ -178,3 +178,6 @@ else if (maxScore === angryScore) {
 else {
   emotion.textContent = "🥱 少し疲れているかも";
 }
+requestAnimationFrame(detectFace);
+
+}
