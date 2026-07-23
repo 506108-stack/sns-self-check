@@ -111,60 +111,70 @@ const frown =
   (blendshapes.find(x => x.categoryName === "mouthFrownLeft")?.score || 0) +
   (blendshapes.find(x => x.categoryName === "mouthFrownRight")?.score || 0);
 
-const browDown =
-  (blendshapes.find(x => x.categoryName === "browDownLeft")?.score || 0) +
-  (blendshapes.find(x => x.categoryName === "browDownRight")?.score || 0);
+const browInner =
+  blendshapes.find(x => x.categoryName === "browInnerUp")?.score || 0;
 
-const eyeClose =
+const mouthShrug =
+  (blendshapes.find(x => x.categoryName === "mouthShrugLower")?.score || 0) +
+  (blendshapes.find(x => x.categoryName === "mouthShrugUpper")?.score || 0);
+
+const eyeBlink =
   (blendshapes.find(x => x.categoryName === "eyeBlinkLeft")?.score || 0) +
   (blendshapes.find(x => x.categoryName === "eyeBlinkRight")?.score || 0);
- 
-  const mouthPucker =
-  blendshapes.find(x => x.categoryName === "mouthPucker")?.score || 0;
 
 const eyeSquint =
   (blendshapes.find(x => x.categoryName === "eyeSquintLeft")?.score || 0) +
   (blendshapes.find(x => x.categoryName === "eyeSquintRight")?.score || 0);
 
-// デバッグ用
+const mouthPucker =
+  blendshapes.find(x => x.categoryName === "mouthPucker")?.score || 0;
+
+// ---------- 感情スコア ----------
+const smileScore = smile;
+
+const sadScore =
+  browInner * 0.4 +
+  mouthShrug * 0.3 +
+  eyeSquint * 0.3;
+
+const angryScore =
+  eyeSquint * 0.5 +
+  mouthPucker * 0.5;
+
+const tiredScore =
+  eyeBlink * 0.6 +
+  eyeSquint * 0.4;
+
+// デバッグ
 console.log({
-  smile,
-  frown,
-  browDown,
-  eyeClose
+  smileScore,
+  sadScore,
+  angryScore,
+  tiredScore
 });
 
-// 判定
+// ---------- 一番高い感情を表示 ----------
 const emotion = document.getElementById("emotion");
 
-  if (smile > 0.35 && smileR > 0.35) {
+const maxScore = Math.max(
+  smileScore,
+  sadScore,
+  angryScore,
+  tiredScore
+);
 
-  emotion.textContent = "😊 笑顔ですね！";
-
+if (maxScore < 0.35) {
+  emotion.textContent = "😐 普通の表情です";
 }
-else if (
-  browInner > 0.45 &&
-  eyeSquint > 0.25 &&
-  mouthShrug > 0.35
-) {
-
+else if (maxScore === smileScore) {
+  emotion.textContent = "😊 笑顔ですね！";
+}
+else if (maxScore === sadScore) {
   emotion.textContent = "😢 少し落ち込んでいるかも";
-
+}
+else if (maxScore === angryScore) {
+  emotion.textContent = "😠 少しイライラしているかも";
 }
 else {
-
-  emotion.textContent = "😐 普通の表情です";
-
+  emotion.textContent = "🥱 少し疲れているかも";
 }
-
-// イライラ
-else if (
-  eyeSquint > 0.45 &&
-  mouthPucker > 0.30
-) {
-
-  emotion.textContent = "😠 少しイライラしているかも";
-
-}
-
-
