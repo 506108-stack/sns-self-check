@@ -45,31 +45,27 @@ function diagnosis() {
     </p>
   `;
 
-  if (totalScore < 30) {
+ if (totalScore < 40) {
     result.innerHTML += `
       <p>
-        😊 安心してSNSを利用できそうです。<br>
-        <small>You seem ready to use social media.</small>
+        😊 現在の状態では、SNSによる気分への影響は比較的小さいと考えられます。<br>
+        <small>Your current state may be less likely to affect your mood when using social media.</small>
       </p>`;
   }
   else if (totalScore < 60) {
     result.innerHTML += `
       <p>
-        😌 少し休憩してから見るのがおすすめです。<br>
-        <small>Taking a short break first may help.</small>
-      </p>`;
-  }
-  else if (totalScore < 80) {
-    result.innerHTML += `
-      <p>
-        ⚠️ 今はSNSが気分に影響する可能性があります。<br>
-        <small>Social media may affect your mood right now.</small>
+        😌 SNSを見る前に、今の自分の状態を少し確認してみましょう。<br>
+        <small>Take a moment to check how you are feeling before using social media.</small>
       </p>`;
   }
   else {
     result.innerHTML += `
       <p>
-        🚫 今日はSNSを控えることをおすすめします。<br>
+        ⚠️ 現在の状態では、SNSによって気分が変化する可能性があります。<br>
+        <small>Your current state may make you more likely to experience a change in mood when using social media.</small>
+      </p>`;
+  }
         <small>It may be better to avoid social media for now.</small>
       </p>`;
   }
