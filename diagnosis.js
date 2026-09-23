@@ -98,3 +98,4 @@ function diagnosis() {
       </p>`;
   }
 }
+window.diagnosis = diagnosis;
