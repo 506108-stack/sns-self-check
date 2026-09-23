@@ -29,7 +29,7 @@ function diagnosis() {
   // 60点満点に変換
   questionScore = Math.round(questionScore / 24 * 60);
 
-  // 表情スコア（face.jsから受け取る）
+  // 表情スコア
   const faceScore = window.faceScore || 0;
 
   // 合計100点
@@ -37,16 +37,35 @@ function diagnosis() {
 
   const result = document.getElementById("result");
 
- result.innerHTML = `
-    <h2 class="risk-score">${totalScore} / 100</h2>
+  // 危険度によって色を決める
+  let riskClass = "";
+
+  if (totalScore < 40) {
+    riskClass = "risk-low";
+  }
+  else if (totalScore < 60) {
+    riskClass = "risk-medium";
+  }
+  else {
+    riskClass = "risk-high";
+  }
+
+  // スコア＋危険度バー
+  result.innerHTML = `
+    <h2 class="${riskClass}">${totalScore} / 100</h2>
+
     <p>
       SNSリスクスコア<br>
       <small>Social Media Risk Score</small>
     </p>
+
+    <div class="risk-bar">
+      <div class="risk-bar-fill ${riskClass}" style="width: ${totalScore}%"></div>
+    </div>
   `;
 
-  // 0～39点
- if (totalScore < 40) {
+  // 判定メッセージ
+  if (totalScore < 40) {
     result.innerHTML += `
       <p class="risk-low">
         🟢 低い
@@ -77,6 +96,5 @@ function diagnosis() {
         現在の状態では、SNSによって気分が変化する可能性があります。<br>
         <small>Your current state may make you more likely to experience a change in mood when using social media.</small>
       </p>`;
-  }
   }
 }
