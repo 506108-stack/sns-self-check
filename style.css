@@ -68,3 +68,50 @@ small {
   color: gray;
   font-size: 0.85em;
 }
+/* SNSリスクスコアの色 */
+
+.risk-low {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.risk-medium {
+  color: #e6a700;
+  font-weight: bold;
+}
+
+.risk-high {
+  color: #e53935;
+  font-weight: bold;
+}
+
+
+/* 危険度バー */
+
+.risk-bar {
+  width: 80%;
+  max-width: 400px;
+  height: 18px;
+  background: #eeeeee;
+  border-radius: 10px;
+  margin: 15px auto;
+  overflow: hidden;
+}
+
+.risk-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s ease;
+}
+
+.risk-bar-fill.risk-low {
+  background: #4caf50;
+}
+
+.risk-bar-fill.risk-medium {
+  background: #e6a700;
+}
+
+.risk-bar-fill.risk-high {
+  background: #e53935;
+}
