@@ -37,8 +37,8 @@ function diagnosis() {
 
   const result = document.getElementById("result");
 
-  result.innerHTML = `
-    <h2>${totalScore} / 100</h2>
+ result.innerHTML = `
+    <h2 class="risk-score">${totalScore} / 100</h2>
     <p>
       SNSリスクスコア<br>
       <small>Social Media Risk Score</small>
@@ -46,29 +46,37 @@ function diagnosis() {
   `;
 
   // 0～39点
-  if (totalScore < 40) {
+ if (totalScore < 40) {
     result.innerHTML += `
+      <p class="risk-low">
+        🟢 低い
+      </p>
       <p>
-        😊 現在の状態では、SNSによる気分への影響は比較的小さいと考えられます。<br>
+        現在の状態では、SNSによる気分への影響は比較的小さいと考えられます。<br>
         <small>Your current state may be less likely to affect your mood when using social media.</small>
       </p>`;
   }
 
-  // 40～59点
   else if (totalScore < 60) {
     result.innerHTML += `
+      <p class="risk-medium">
+        🟡 注意
+      </p>
       <p>
-        😌 SNSを見る前に、今の自分の状態を少し確認してみましょう。<br>
+        SNSを見る前に、今の自分の状態を少し確認してみましょう。<br>
         <small>Take a moment to check how you are feeling before using social media.</small>
       </p>`;
   }
 
-  // 60～100点
   else {
     result.innerHTML += `
+      <p class="risk-high">
+        🔴 特に注意が必要
+      </p>
       <p>
-        ⚠️ 現在の状態では、SNSによって気分が変化する可能性があります。<br>
+        現在の状態では、SNSによって気分が変化する可能性があります。<br>
         <small>Your current state may make you more likely to experience a change in mood when using social media.</small>
       </p>`;
+  }
   }
 }
