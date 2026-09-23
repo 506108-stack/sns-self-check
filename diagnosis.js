@@ -21,7 +21,7 @@ function diagnosis() {
     sad +
     tired +
     compare +
-    (3 - focus) +   // 集中できるほどリスクが下がる
+    (3 - focus) +
     past +
     lonely +
     approval;
@@ -45,13 +45,16 @@ function diagnosis() {
     </p>
   `;
 
- if (totalScore < 40) {
+  // 0～39点
+  if (totalScore < 40) {
     result.innerHTML += `
       <p>
         😊 現在の状態では、SNSによる気分への影響は比較的小さいと考えられます。<br>
         <small>Your current state may be less likely to affect your mood when using social media.</small>
       </p>`;
   }
+
+  // 40～59点
   else if (totalScore < 60) {
     result.innerHTML += `
       <p>
@@ -59,6 +62,8 @@ function diagnosis() {
         <small>Take a moment to check how you are feeling before using social media.</small>
       </p>`;
   }
+
+  // 60～100点
   else {
     result.innerHTML += `
       <p>
@@ -66,11 +71,4 @@ function diagnosis() {
         <small>Your current state may make you more likely to experience a change in mood when using social media.</small>
       </p>`;
   }
-        <small>It may be better to avoid social media for now.</small>
-      </p>`;
-  }
 }
-const result = getRiskLevel(score);
-
-resultLevel.textContent = result.level;
-resultMessage.textContent = result.message;
