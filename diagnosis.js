@@ -70,3 +70,7 @@ function diagnosis() {
       </p>`;
   }
 }
+const result = getRiskLevel(score);
+
+resultLevel.textContent = result.level;
+resultMessage.textContent = result.message;
